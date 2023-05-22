@@ -37,7 +37,7 @@ const game = (() => {
 
     const resetWinner = function() {
         hasWinner = false;
-        count = 1;
+        count = 0;
     }
 
     const resetTurn = function () {
@@ -101,8 +101,11 @@ const gameBoard = (() => {
     //create function to target the add event listener to elements
     const addEvents = function(arrayElement) {
         arrayElement.DOM.addEventListener("click", function() {
+            if(arrayElement.value !== 0){
+                return;
+            }
             let check = game.checker();
-            if(game.checker() !== 0){
+            if(check !== 0){
                 if(check === 1){
                     arrayElement.DOM.textContent = "X";
                     arrayElement.value = 1;
@@ -122,8 +125,7 @@ const gameBoard = (() => {
                     game.switchTurn();
                 }
             }
-
-        }, {once: true});
+        });
     };
 
     //add event listener for click
@@ -148,7 +150,6 @@ const gameBoard = (() => {
 
     startBtn.addEventListener("click", function(){
         board.forEach(newGame);
-        board.forEach(addEvents);
         game.resetWinner();
     });
 
