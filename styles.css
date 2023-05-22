@@ -1,0 +1,126 @@
+@font-face{
+    font-family: custom;
+    src: url(./fonts/Prompt-Regular.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: custom, Georgia, 'Times New Roman', Times, serif;
+}
+
+:root{
+    --dark-background: rgb(0, 11, 20);
+    --light-background: rgb(0, 18, 32);
+    --highlight-color: #187cc9;
+    --light-blue: rgb(63, 207, 207);
+    --shadow: 0px 0px 5px 3px var(--highlight-color);
+}
+
+html{
+    height: 100vh;
+    width: 100vw;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 20% 80%;
+}
+
+div#header{
+    grid-area: 1 / 1 / 2 / 4;
+    background-color: var(--highlight-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div#player1{
+    grid-area: 2 / 1 / 3 / 2;
+    background-color: var(--light-background);
+}
+
+div#game{
+    grid-area: 2 / 2 / 3 / 3;
+    background-color: var(--dark-background);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+}
+
+div#player2{
+    grid-area: 2 / 3 / 3 / 4;
+    background-color: var(--light-background);
+}
+
+h1{
+    font-size: 70px;
+    text-align: center;
+}
+
+div#gameboard{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    height: 328px;
+    width: 328px;
+}
+
+div.square{
+    height: 104px;
+    width: 104px;
+    background-color: lightblue;
+    border: 3px solid var(--light-blue);
+    font-size: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div#game-buttons{
+    display: flex;
+    gap: 30px;
+}
+
+button.game-button{
+    height: 30px;
+    width: 100px;
+    background-color: var(--light-blue);
+    border-radius: 20px;
+}
+
+div.player{
+    color: whitesmoke;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+div.playername{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+div.playername > h2{
+    font-size: 28px;
+}
+
+div.playername > button{
+    border-radius: 100%;
+    height: 20px;
+    font-size: 10px;
+}
+
+div.marker{
+    font-size: 170px;
+}
